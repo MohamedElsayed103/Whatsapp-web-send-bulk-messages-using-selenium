@@ -3,7 +3,6 @@ package org.example;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.html5.LocalStorage;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -38,20 +37,11 @@ public class Main {
         driver.manage().window().maximize();
 
 
-
-
-
-
         for (String phone : phoneNumbers) {
             driver.get("https://web.whatsapp.com/send/?phone="+phone+"&amp;text&amp;type=phone_number&amp;app_absent=0");
 
             if (flag == 0) {
-                LocalStorage localStorage = driver.getLocalStorage();
-                localStorage.setItem("ChatThreadLoggingSecret","\"u0jwVNXECjM48YRPscgH+VUNhXi3PMbrjnjVQcGkOao=\"");
-                localStorage.setItem("ChatThreadLoggingLastUploadedStartTs","0");
-                localStorage.setItem("ChatThreadLoggingOffset","47768");
                 TimeUnit.SECONDS.sleep(30);
-
                 flag =1;
             }
             else
